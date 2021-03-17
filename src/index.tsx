@@ -2,10 +2,7 @@ import React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import App from './components/App';
-
-// const history = createBrowserHistory()
-// history.listen(AnalyticsListener.pageViewListener)
+import App from './routes/App';
 
 ReactDOM.render(<App />, document.getElementById('app'));
 
