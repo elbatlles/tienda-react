@@ -1,0 +1,55 @@
+{
+    "extends": [
+        "airbnb-typescript",
+    "plugin:react/recommended", 
+    
+      "prettier",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": [
+    "react",
+  "jsx-a11y",
+  "import",
+ "prettier"
+    ],
+    
+    "parserOptions": {
+       
+        "project":"./tsconfig.json"
+      },
+    "rules": {
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".tsx"
+          ]
+        }
+      ],
+      "react/prop-types": 0,
+      "no-underscore-dangle": 0,
+      "import/imports-first": [
+        "error",
+        "absolute-first"
+      ],
+      "import/newline-after-import": "error"
+    },
+    "settings": {
+        "react": {
+          "version": "detect" // para detectar la versión de reactjs
+        }
+    },
+    "globals": {
+      "window": true,
+      "document": true,
+      "localStorage": true,
+      "FormData": true,
+      "FileReader": true,
+      "Blob": true,
+      "navigator": true
+    },
+    "parser": "@typescript-eslint/parser"
+  }
