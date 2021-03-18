@@ -5,6 +5,6 @@ interface Props {}
 
 export default class Home extends PureComponent<Props> {
   render() {
-    return <Products products={initialState.products} />;
+    return <Products  />;
   }
 }

@@ -1,11 +1,13 @@
 import React from 'react';
+import { ProductType } from '../type/Types';
 
 interface Props {
-  product: any;
+  product: ProductType;
+  handleAddToCart:Function
 }
 
-const Product = (props: Props) => {
-  const { product } = props;
+const Product = ({handleAddToCart,product}: Props) => {
+  //const { product } = props;
   return (
     <div className="Products-item">
       <img src={product.image} alt={product.title} />
@@ -15,7 +17,9 @@ const Product = (props: Props) => {
           <span>$ {product.price}</span>
         </h2>
         <p>{product.description}</p>
-        <button type="button">Comprar</button>
+        <button 
+        onClick={()=>handleAddToCart(product)}
+        type="button">Comprar</button>
       </div>
     </div>
   );

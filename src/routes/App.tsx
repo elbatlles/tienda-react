@@ -8,8 +8,15 @@ import NotFound from '../containers/NotFound';
 import Payment from '../containers/Payment';
 import Success from '../containers/Success';
 import Layout from '../components/Layout';
+import AppContext from '../context/AppContext';
+import useInitialState from '../hooks/useInitialState';
+
 const App: React.FC = () => {
+  const initialState = useInitialState()
   return (
+    <AppContext.Provider value={initialState} >
+
+  
     <BrowserRouter>
       <Layout>
         <Switch>
@@ -22,6 +29,7 @@ const App: React.FC = () => {
         </Switch>
       </Layout>
     </BrowserRouter>
+    </AppContext.Provider>
   );
 };
 
