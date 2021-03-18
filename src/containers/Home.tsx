@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
-
+import initialState from '../initialState'
+import Products from '../components/Products'
 interface Props {
     
 }
@@ -7,9 +8,7 @@ interface Props {
 export default class Home extends PureComponent<Props> {
     render() {
         return (
-            <div>
-              <h1>Home! </h1>  
-            </div>
+            <Products products={initialState.products} />
         )
     }
 }
