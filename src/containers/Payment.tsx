@@ -1,15 +1,19 @@
-import React, { PureComponent } from 'react'
-import '../styles/components/Payment.css'
+import React from 'react'
+import '../styles/components/Payment.css';
 interface Props {
     
 }
 
-export default class Payment extends PureComponent<Props> {
-    render() {
-        return (
-            <div>
-                <h1>Payment </h1>
-            </div>
-        )
-    }
+const Payment = (props: Props) => {
+    return (
+        <div className="Payment">
+        <div className="Payment-content">
+          <h3>Resumen del pedido:</h3>
+          <div className="Payment-button">Boton de pago con Paypal</div>
+        </div>
+        <div></div>
+      </div>
+    )
 }
+
+export default Payment

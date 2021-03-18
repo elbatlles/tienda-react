@@ -1,18 +1,32 @@
 import React from 'react'
-import '../styles/components/Header.css'
+import { Link } from 'react-router-dom';
+
+import '../styles/components/Header.css';
 interface Props {
+  
+}
+
+const Header = (props: Props) => {
+  return (
+    <div className="Header">
+      <h1 className="Header-title">
+        <Link
+        to="/"
+        >PlatziConf Merch
+           </Link>
+        </h1>
+      <div className="Header-checkout">
     
-  }
-const Header: React.FC<Props> = (props) => {
-   
-    return (
-        <div className="Header">
-             <h1 className="Header-title">PlatziConf Merch</h1>
-             <div className="Header-checkout">
-                 Checkout
-             </div>
+        <Link
+      
+        to="/checkout">
+          <i className="fas fa-shopping-basket"></i>
+        </Link>
         </div>
-    )
+    </div>
+  )
 }
 
 export default Header
+
+

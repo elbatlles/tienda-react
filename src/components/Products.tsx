@@ -1,25 +1,21 @@
-import React from 'react'
-import Product from './Product'
-import "../styles/components/Products.css"
+import React from 'react';
+import Product from './Product';
+import '../styles/components/Products.css';
 interface Props {
-  products:any
+  products: any;
 }
 
 const Products = (props: Props) => {
-   const {products} = props
+  const { products } = props;
   return (
-   <div className="Products">
-     <div className="Products-items">
-
-    
-     {products.map((product: any ) =>(
-       <Product key={product.id}
-       product={product}
-       ></Product>
-     ))}
+    <div className="Products">
+      <div className="Products-items">
+        {products.map((product: any) => (
+          <Product key={product.id} product={product}></Product>
+        ))}
       </div>
-   </div>
-  )
-}
+    </div>
+  );
+};
 
-export default Products
+export default Products;
