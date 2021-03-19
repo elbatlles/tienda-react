@@ -3,10 +3,10 @@ import { ProductType } from '../type/Types';
 
 interface Props {
   product: ProductType;
-  handleAddToCart:Function
+  handleAddToCart: Function;
 }
 
-const Product = ({handleAddToCart,product}: Props) => {
+const Product = ({ handleAddToCart, product }: Props) => {
   //const { product } = props;
   return (
     <div className="Products-item">
@@ -17,9 +17,9 @@ const Product = ({handleAddToCart,product}: Props) => {
           <span>$ {product.price}</span>
         </h2>
         <p>{product.description}</p>
-        <button 
-        onClick={()=>handleAddToCart(product)}
-        type="button">Comprar</button>
+        <button onClick={() => handleAddToCart(product)} type="button">
+          Comprar
+        </button>
       </div>
     </div>
   );

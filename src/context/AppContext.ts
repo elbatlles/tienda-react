@@ -1,28 +1,21 @@
-import React from 'react'
-import {ProductType} from '../type/Types'
-export type Cart = {
-    
-    addToCart: (payload: any) => void;
-    removeFromCart: (payload: any) => void;
-    state:{
-        cart: any[];
-        products:ProductType[];
-    }
-
-}
+import React from 'react';
+import { Cart, ProductType } from '../type/Types';
 
 const AppContext = React.createContext<Cart>({
-    
-    addToCart: () => {},
-    removeFromCart: () => {},
-    state:{
-        cart:[],
-        products:[]
-    },
-   
-    })
+  addToCart: () => {},
+  addToBuyer: () => {},
+  addNewOrder: () => {},
 
-export default AppContext
+  removeFromCart: () => {},
+  state: {
+    cart: [],
+    orders: [],
+    buyer: [],
+    products: [],
+  },
+});
+
+export default AppContext;
 
 /*
     removeFromCart: (payload: any) => void;
