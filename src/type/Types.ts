@@ -21,7 +21,7 @@ export type Cart = {
 
   state: {
     cart: ProductType[];
-    buyer: [];
+    buyer: any;
     orders: [];
     products: ProductType[];
   };
@@ -41,3 +41,6 @@ export type PayPalButtonProps = {
     data: OnShippingChangeData
   ) => Promise<void | string | number> | string | number | void;
 };
+
+
+export const APIKEY="AIzaSyB1MY7NLSGeE7m6FsNxYbAPi_X5JC4LyvI"

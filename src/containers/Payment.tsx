@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import {
-  ButtonStylingOptions,
+  
   PayPalButton,
   PaypalOptions,
-} from 'react-paypal-button';
+} from  "react-paypal-button-v2";
 import { useHistory } from 'react-router';
 import AppContext from '../context/AppContext';
 
@@ -19,17 +19,18 @@ const Payment = (props: Props) => {
   const history= useHistory()
 
   const paypalOptions: PaypalOptions = {
-    clientId: 'sb-gg435i5471737@business.example.com',
+    clientId:  String(process.env.CLIENT_ID_PP),
     intent: 'capture',
     currency: 'EUR',
   };
-  const buttonStyle: ButtonStylingOptions = {
+  const buttonStyle: any = {
     layout: 'vertical',
     shape: 'rect',
   };
 
   const handlePaymentSuccess = (data: any) => {
-    console.log(data);
+ console.log("completed?")
+ console.log(data)
     if (data.status === 'COMPLETED') {
       const newOrder = {
         buyer,
@@ -37,8 +38,9 @@ const Payment = (props: Props) => {
         payment: data,
       };
       addNewOrder(newOrder);
-      history.push("/checkout/success")
+     
     }
+    history.push("/checkout/success")
   };
   return (
     <div className="Payment">
@@ -53,15 +55,25 @@ const Payment = (props: Props) => {
           </div>
         ))}
         <div className="Payment-button">
-          <PayPalButton
-            paypalOptions={paypalOptions}
-            buttonStyles={buttonStyle}
-            amount={handleSumTotal(cart)}
-            onPaymentStart={() => console.log('Start Payment')}
-            onPaymentSuccess={(data) => console.log(data)}
-            onPaymentError={(data) => console.log(data)}
-            onPaymentCancel={(data) => console.log(data)}
-          />
+        <PayPalButton
+      options={paypalOptions}
+        amount="0.01"
+        // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+        onSuccess={(details:any, data:any) => {
+          console.log("completed?")
+          console.log(data)
+          console.log(details)
+          alert("Transaction completed by " + details.payer.name.given_name);
+         // handlePaymentSuccess()
+          // OPTIONAL: Call your server to save the transaction
+          return fetch("/paypal-transaction-complete", {
+            method: "post",
+            body: JSON.stringify({
+              orderID: data.orderID
+            })
+          });
+        }}
+      />
         </div>
       </div>
       <div></div>
