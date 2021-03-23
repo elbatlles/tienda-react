@@ -58,7 +58,7 @@ const Information = (props: Props) => {
         </div>
       </div>
       <div className="Information-sidebar">
-        <h3>Pedido:</h3>
+        <h3>Pedido::</h3>
         {cart.map((item: ProductType) => (
           <div className="Information-item">
             <div className="Information-element">
