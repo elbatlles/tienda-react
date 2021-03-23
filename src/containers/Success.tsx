@@ -8,6 +8,7 @@ interface Props {}
 const Success = (props: Props) => {
   const { state, addNewOrder } = useContext(AppContext);
   const { cart, buyer } = state;
+  console.log(buyer)
   const location = useGoogleAddress(buyer[0].address)
   return (
     <div className="Succes">
