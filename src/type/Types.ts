@@ -49,4 +49,4 @@ export type PayPalButtonProps = {
 
 export const APIKEY="AIzaSyB1MY7NLSGeE7m6FsNxYbAPi_X5JC4LyvI"
 
-export const URLSTRAPI="http://localhost:1337/products"
+export const URLSTRAPI="https://backendtienda.herokuapp.com/products"
