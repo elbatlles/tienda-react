@@ -8,22 +8,26 @@ import {
 
 export interface ProductType {
   id: string;
-  image: string;
+  image: [{
+    url:string,
+    name:string
+  }];
   title: string;
   price: number;
   description: string;
+ 
 }
 export type Cart = {
   addToCart: (payload: any) => void;
   removeFromCart: (payload: any) => void;
   addToBuyer: (payload: any) => void;
   addNewOrder: (payload: any) => void;
-
+  products: ProductType[];
   state: {
     cart: ProductType[];
     buyer: any;
-    orders: [];
-    products: ProductType[];
+    orders: any[];
+   
   };
 };
 
@@ -44,3 +48,5 @@ export type PayPalButtonProps = {
 
 
 export const APIKEY="AIzaSyB1MY7NLSGeE7m6FsNxYbAPi_X5JC4LyvI"
+
+export const URLSTRAPI="http://localhost:1337/products"

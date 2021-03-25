@@ -10,11 +10,14 @@ import Success from '../containers/Success';
 import Layout from '../components/Layout';
 import AppContext from '../context/AppContext';
 import useInitialState from '../hooks/useInitialState';
+import { Cart } from '../type/Types';
 
 const App: React.FC = () => {
-  const initialState = useInitialState();
+  const initialState:Cart = useInitialState();
+  const isEmpty =Object.keys(initialState.state).length
   return (
-    <AppContext.Provider value={initialState}>
+    <>
+    {isEmpty > 0 ?  <AppContext.Provider value={initialState}>
       <BrowserRouter>
         <Layout>
           <Switch>
@@ -27,7 +30,9 @@ const App: React.FC = () => {
           </Switch>
         </Layout>
       </BrowserRouter>
-    </AppContext.Provider>
+    </AppContext.Provider>: "<h1>Loading</h1>"}
+  
+    </>
   );
 };
 

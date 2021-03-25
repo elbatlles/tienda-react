@@ -9,8 +9,8 @@ interface Props {
 }
 
 const Products = (props: Props) => {
-  const { state, addToCart } = useContext(AppContext);
-  const { products } = state;
+  const { products,state, addToCart } = useContext(AppContext);
+
   const handleAddToCart = (product: ProductType) => {
     addToCart(product);
   };

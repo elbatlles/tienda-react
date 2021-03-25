@@ -7,11 +7,13 @@ const AppContext = React.createContext<Cart>({
   addNewOrder: () => {},
 
   removeFromCart: () => {},
+  products: [],
   state: {
     cart: [],
     orders: [],
     buyer: [],
-    products: [],
+   
+    
   },
 });
 

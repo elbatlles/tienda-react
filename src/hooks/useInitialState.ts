@@ -1,7 +1,28 @@
-import { useState } from 'react';
+import { Cart, URLSTRAPI } from './../type/Types';
+import { useEffect, useState } from 'react';
 import initialState from '../initialState';
+import axios from 'axios';
+
+
 const useInitialState = () => {
   const [state, setstate] = useState(initialState);
+
+  const [products, setproducts] = useState([])
+
+  useEffect(() => {
+    let didCancel =false
+ const getProducts = async () =>{
+   
+const productsResponse = await axios(URLSTRAPI)
+!didCancel && setproducts(productsResponse.data)
+ }
+ getProducts()
+    return () => {
+     didCancel =true
+    }
+  }, [])
+
+  
   const addToCart = (payload: any) => {
     setstate({ ...state, cart: [...state.cart, payload] });
   };
@@ -25,11 +46,13 @@ const useInitialState = () => {
       orders: [...state.orders, payload],
     });
   };
+
   return {
     addToCart,
     removeFromCart,
     addToBuyer,
     addNewOrder,
+    products,
     state,
   };
 };
